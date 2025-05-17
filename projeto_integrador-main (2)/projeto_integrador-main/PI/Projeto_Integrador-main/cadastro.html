@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeStore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+
+.cadastro-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.cadastro-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #162447;
+}
+
+.campo {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #162447;
+}
+
+.campo input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.cadastro-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #ff4d4d, #b71540);
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.cadastro-btn:hover {
+    background: linear-gradient(135deg, #e60000, #960018);
+}
+
+.cadastro-link {
+    margin-top: 15px;
+}
+
+.cadastro-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cadastro-link a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+
+
+
+
+<!-- Cabeçalho principal -->
+<header class="header">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button> <!-- Hambúrguer sempre visível -->
+    <img class="logo" src="../imagens/2ecf23ec-a679-46e2-93e8-17ba6a8783dc 1.png" alt="LIBRUM">
+    
+    <div class="search-bar">
+        <input type="text" placeholder="Buscar produtos...">
+        <button>Buscar</button>
+    </div>
+    
+    <div class="user-actions">
+        <a href="#"><img src="../imagens/boneco-login.png" alt="Login"><span>Login</span></a>
+    </div>
+</header>
+
+<!-- Fundo escurecido -->
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<!-- Menu lateral atualizado -->
+<nav class="menu" id="menu">
+    <button class="close-menu" onclick="toggleMenu()">✖</button> <!-- Botão de fechar -->
+    <ul class="menu-items">
+        <li><a href="index.html" class="novidades">Home</a></li>
+        <li><a href="#"> Camisetas</a></li>
+        <li><a href="#"> Moletons</a></li>
+        <li><a href="#"> Guia de Medidas</a></li>
+    </ul>
+</nav>
+
+
+
+<script>
+    function toggleMenu() {
+    const menu = document.getElementById("menu");
+    const overlay = document.getElementById("overlay");
+
+    if (menu.style.left === "0px") {
+        menu.style.left = "-300px"; // Fecha o menu
+        overlay.style.display = "none"; // Remove o fundo escurecido
+    } else {
+        menu.style.left = "0px"; // Abre o menu
+        overlay.style.display = "block"; // Aplica o fundo escurecido
+    }
+}
+</script>
+
+<div class="cadastro-wrapper">
+    <div class="cadastro-container">
+        <form>
+            <div class="campo">
+                <label for="cadastro-nome">Nome completo</label>
+                <input type="text" id="cadastro-nome" name="cadastro-nome" placeholder="">
+            </div>
+            <div class="campo">
+                <label for="cadastro-email">E-mail</label>
+                <input type="email" id="cadastro-email" name="cadastro-email" placeholder="">
+            </div>
+            <div class="campo">
+                <label for="cadastro-senha">Senha</label>
+                <input type="password" id="cadastro-senha" name="cadastro-senha" placeholder="">
+            </div>
+            <button type="submit" class="cadastro-btn">Criar uma conta</button>
+        </form>
+        <div class="cadastro-link">
+            <p>Já possui uma conta? <a href="#">Faça login</a></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

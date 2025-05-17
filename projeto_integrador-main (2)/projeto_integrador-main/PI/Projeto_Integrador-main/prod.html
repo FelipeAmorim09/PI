@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RX 7800XT | TechStore Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a2a72;
+            --secondary: #ff9f1c;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --success: #4bb543;
+            --danger: #e63946;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .header {
+            background-color: var(--dark);
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .user-actions a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 15px 5%;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .breadcrumb a {
+            color: var(--gray);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Product Section */
+        .product-container {
+            display: flex;
+            padding: 30px 5%;
+            gap: 30px;
+        }
+        
+        .product-gallery {
+            flex: 1;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 20px;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .thumbnail {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: border 0.3s;
+        }
+        
+        .thumbnail:hover {
+            border-color: var(--primary);
+        }
+        
+        .product-info {
+            flex: 1;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 25px;
+        }
+        
+        .product-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .product-brand {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .promo-tag {
+            background-color: var(--danger);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .price-container {
+            margin-bottom: 25px;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 18px;
+        }
+        
+        .current-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 5px 0;
+        }
+        
+        .installments {
+            color: var(--success);
+            font-weight: 500;
+        }
+        
+        .discount-badge {
+            background-color: var(--success);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        
+        .countdown {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .countdown-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .countdown-timer {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--danger);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .buy-btn, .cart-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .buy-btn {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        
+        .buy-btn:hover {
+            background-color: #ff8c00;
+            transform: translateY(-2px);
+        }
+        
+        .cart-btn {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .cart-btn:hover {
+            background-color: #1a1a2e;
+            transform: translateY(-2px);
+        }
+        
+        .delivery-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .delivery-info p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .delivery-info i {
+            color: var(--success);
+        }
+        
+        .payment-methods {
+            margin-top: 25px;
+        }
+        
+        .payment-methods h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .payment-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .payment-option {
+            background-color: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        /* Product Details */
+        .product-details {
+            padding: 30px 5%;
+            background-color: white;
+            margin-top: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        
+        .details-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .spec-item {
+            margin-bottom: 15px;
+        }
+        
+        .spec-name {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        /* Related Products */
+        .related-products {
+            padding: 30px 5%;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--dark);
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .section-title:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .product-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            padding: 15px;
+            background-color: #f8f9fa;
+        }
+        
+        .product-card-body {
+            padding: 15px;
+        }
+        
+        .product-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .product-card-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .product-card-old-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .product-card-discount {
+            color: var(--success);
+            font-weight: 600;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        
+        .product-card-btn {
+            width: 100%;
+            padding: 8px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .product-card-btn:hover {
+            background-color: var(--dark);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 5%;
+            margin-top: 50px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .product-container {
+                flex-direction: column;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">Tech<span>Store</span></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Produtos</a>
+            <a href="#">Ofertas</a>
+            <a href="#">Contato</a>
+        </div>
+        <div class="user-actions">
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="#"><i class="fas fa-user"></i></a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </header>
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="#">Home</a> > <a href="#">Hardware</a> > <a href="#">Placas de Vídeo</a> > <a href="#">AMD</a> > Placa de Vídeo RX 7800XT
+    </div>
+    
+    <!-- Product Section -->
+    <section class="product-container">
+        <div class="product-gallery">
+            <img src="https://images.kabum.com.br/produtos/fotos/462677/placa-de-video-rx-7800xt-gaming-16g-xfx-speedster-qick319-amd-radeon-16gb-ddr6-hdmi-3xdp-3-fan-rx-78tqickf9_1694718138_gg.jpg" alt="RX 7800XT" class="main-image" id="mainImage">
+            <div class="thumbnail-container">
+                <img src="https://images.kabum.com.br/produtos/fotos/462677/placa-de-video-rx-7800xt-gaming-16g-xfx-speedster-qick319-amd-radeon-16gb-ddr6-hdmi-3xdp-3-fan-rx-78tqickf9_1694718138_gg.jpg" alt="RX 7800XT" class="thumbnail" onclick="changeImage(this)">
+                <img src="https://images.kabum.com.br/produtos/fotos/sync_mirakl/462677/Placa-de-V-deo-RX-7800XT-Gaming-16G-XFX-Speedster-QICK319-AMD-Radeon-16GB-DDR6-HDMI-3xDP-3-FAN-RX-78TQICKF9_2.jpg" alt="RX 7800XT" class="thumbnail" onclick="changeImage(this)">
+                <img src="https://images.kabum.com.br/produtos/fotos/sync_mirakl/462677/Placa-de-V-deo-RX-7800XT-Gaming-16G-XFX-Speedster-QICK319-AMD-Radeon-16GB-DDR6-HDMI-3xDP-3-FAN-RX-78TQICKF9_3.jpg" alt="RX 7800XT" class="thumbnail" onclick="changeImage(this)">
+                <img src="https://images.kabum.com.br/produtos/fotos/sync_mirakl/462677/Placa-de-V-deo-RX-7800XT-Gaming-16G-XFX-Speedster-QICK319-AMD-Radeon-16GB-DDR6-HDMI-3xDP-3-FAN-RX-78TQICKF9_4.jpg" alt="RX 7800XT" class="thumbnail" onclick="changeImage(this)">
+            </div>
+        </div>
+        
+        <div class="product-info">
+            <h1 class="product-title">Placa de Vídeo RX 7800XT Gaming 16G XFX Speedster QICK319 AMD Radeon</h1>
+            <p class="product-brand">XFX | AMD Radeon</p>
+            <span class="promo-tag">OFERTA EXCLUSIVA</span>
+            
+            <div class="price-container">
+                <p class="original-price">De: R$ 5.054,00</p>
+                <p class="current-price">Por: R$ 3.899,99 <span class="discount-badge">17% OFF</span></p>
+                <p class="installments">Em até 10x de R$ 458,62 sem juros no cartão</p>
+            </div>
+            
+            <div class="countdown">
+                <p class="countdown-title">Oferta termina em:</p>
+                <p class="countdown-timer" id="countdown">17D 16:35:47</p>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="buy-btn">COMPRAR AGORA</button>
+                <button class="cart-btn">ADICIONAR AO CARRINHO</button>
+            </div>
+            
+            <div class="delivery-info">
+                <p><i class="fas fa-truck"></i> Frete grátis para todo o Brasil</p>
+                <p><i class="fas fa-box"></i> Enviado por: Kabum! (Em estoque)</p>
+                <p><i class="fas fa-shield-alt"></i> Garantia de 12 meses pelo fabricante</p>
+            </div>
+            
+            <div class="payment-methods">
+                <h3>Outras formas de pagamento:</h3>
+                <div class="payment-options">
+                    <span class="payment-option">À vista no PIX (10% OFF)</span>
+                    <span class="payment-option">2x sem juros</span>
+                    <span class="payment-option">3x sem juros</span>
+                    <span class="payment-option">5x sem juros</span>
+                    <span class="payment-option">10x sem juros</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Product Details -->
+    <section class="product-details">
+        <h2 class="details-title">Especificações Técnicas</h2>
+        <div class="specs-grid">
+            <div class="spec-item">
+                <p class="spec-name">Marca:</p>
+                <p>XFX</p>
+            </div>
+            <div class="spec-item">
+                <p class="spec-name">Modelo:</p>
+                <p>Speedster QICK319 RX-78TQICKF9</p>
+            </div>
+            <div class="spec-item">
+                <p class="spec-name">Chipset:</p>
+                <p>AMD Radeon RX 7800 XT</p>
+            </div>
+            <div class="spec-item">
+                <p class="spec-name">Memória:</p>
+                <p>16GB GDDR6</p>
+            </div>
+            <div class="spec-item">
+                <p class="spec-name">Clock Base:</p>
+                <p>2213 MHz</p>
+            </div>
+            <div class="spec-item">
+                <p class="spec-name">Clock Boost:</p>
+                <p>2565 MHz</p>
+            </div>
+            <div class="spec-item">
+                <p class="spec-name">Interface:</p>
+                <p>PCI Express 4.0 x16</p>
+            </div>
+            <div class="spec-item">
+                <p class="spec-name">Resfriamento:</p>
+                <p>3 Fans</p>
+            </div>
+            <div class="spec-item">
+                <p class="spec-name">Saídas:</p>
+                <p>3x DisplayPort, 1x HDMI</p>
+            </div>
+            <div class="spec-item">
+                <p class="spec-name">Consumo:</p>
+                <p>263W</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Related Products -->
+    <section class="related-products">
+        <h2 class="section-title">PRODUTOS RELACIONADOS</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://images.kabum.com.br/produtos/fotos/416028/placa-de-video-rtx-4070-ventus-3x-12g-msi-nvidia-geforce-12gb-gddr6x-dlss-ray-tracing_1684864705_gg.jpg" alt="RTX 4070" class="product-card-img">
+                <div class="product-card-body">
+                    <h3 class="product-card-title">Placa de Vídeo RTX 4070 Ventus 3X 12G MSI</h3>
+                    <p class="product-card-price">R$ 4.299,99</p>
+                    <p class="product-card-old-price">R$ 4.999,99 <span class="product-card-discount">14% OFF</span></p>
+                    <button class="product-card-btn">COMPRAR</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.kabum.com.br/produtos/fotos/238670/placa-de-video-rtx-3060-ti-ventus-2x-8g-oc-msi-nvidia-geforce-8gb-gddr6-dlss-ray-tracing_1627660252_gg.jpg" alt="RTX 3060 Ti" class="product-card-img">
+                <div class="product-card-body">
+                    <h3 class="product-card-title">Placa de Vídeo RTX 3060 Ti Ventus 2X 8G OC MSI</h3>
+                    <p class="product-card-price">R$ 2.799,99</p>
+                    <p class="product-card-old-price">R$ 3.199,99 <span class="product-card-discount">12% OFF</span></p>
+                    <button class="product-card-btn">COMPRAR</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.kabum.com.br/produtos/fotos/155193/placa-de-video-radeon-rx-6600-xt-8gb-msi-gaming-x-8gb-gddr6-amd_1632840056_gg.jpg" alt="RX 6600 XT" class="product-card-img">
+                <div class="product-card-body">
+                    <h3 class="product-card-title">Placa de Vídeo Radeon RX 6600 XT 8GB MSI</h3>
+                    <p class="product-card-price">R$ 1.999,99</p>
+                    <p class="product-card-old-price">R$ 2.499,99 <span class="product-card-discount">20% OFF</span></p>
+                    <button class="product-card-btn">COMPRAR</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://images.kabum.com.br/produtos/fotos/128013/placa-de-video-geforce-rtx-2060-6gb-evga-06g-p4-2066-kr-nvidia_1588868004_gg.jpg" alt="RTX 2060" class="product-card-img">
+                <div class="product-card-body">
+                    <h3 class="product-card-title">Placa de Vídeo GeForce RTX 2060 6GB EVGA</h3>
+                    <p class="product-card-price">R$ 1.799,99</p>
+                    <p class="product-card-old-price">R$ 2.199,99 <span class="product-card-discount">18% OFF</span></p>
+                    <button class="product-card-btn">COMPRAR</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h3>Institucional</h3>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Nossas Lojas</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Trabalhe Conosco</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Atendimento</h3>
+                <ul>
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="#">Meus Pedidos</a></li>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                    <li><a href="#">Fale Conosco</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Formas de Pagamento</h3>
+                <ul>
+                    <li><a href="#">Cartão de Crédito</a></li>
+                    <li><a href="#">PIX</a></li>
+                    <li><a href="#">Boleto Bancário</a></li>
+                    <li><a href="#">Transferência</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Redes Sociais</h3>
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 TechStore - Todos os direitos reservados</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Troca de imagem ao clicar nas miniaturas
+        function changeImage(element) {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = element.src;
+        }
+        
+        // Contador regressivo
+        function updateCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            
+            // Data final (17 dias no futuro)
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 17);
+            endDate.setHours(16, 35, 47);
+            
+            const now = new Date();
+            const diff = endDate - now;
+            
+            if (diff <= 0) {
+                countdownElement.textContent = "Oferta encerrada!";
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            countdownElement.textContent = `${days}D ${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        // Atualiza a cada segundo
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Chama imediatamente
+        
+        // Efeito de hover nos cards de produto
+        const productCards = document.querySelectorAll('.product-card');
+        productCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+                card.style.boxShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>
